@@ -1,7 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
-import react from '@astrojs/react'; 
+import react from '@astrojs/react';
 
 export default defineConfig({
   // Folder wyjściowy dla GitHub Pages
@@ -10,8 +10,8 @@ export default defineConfig({
   // Publiczny folder na statyczne pliki (favicon, fonty)
   publicDir: 'public',
 
-  // Base URL (ważne dla repozytoriów typu project page)
-  // Dla User Page (username.github.io) można zostawić '/'
+  // Base URL dla repozytorium typu Project Page
+  // W przypadku User Page można zostawić '/'
   base: '/wiktorlazar.github.io/',
 
   integrations: [
@@ -20,7 +20,11 @@ export default defineConfig({
   ],
 
   vite: {
-    // Opcjonalnie: poprawia ładowanie assetów dla GH Pages
+    // Vite też musi używać base URL, aby CSS i JS ładowały się poprawnie
     base: '/wiktorlazar.github.io/',
+    build: {
+      // dodatkowo upewniamy się, że assets mają poprawny prefix
+      assetsDir: '', 
+    },
   },
 });
