@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'AzeretMono';
+  src: url('/fonts/AzeretMono-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+/* ustawienia globalne */
+body {
+  font-family: 'AzeretMono', sans-serif;
+  @apply bg-tm-beige text-tm-gray;
+}
+
+.dark body {
+  @apply bg-black text-white; /* pełna czerń w trybie ciemnym */
+}
+
+/* Header i footer */
+header {
+  /* Przezroczyste tło z blur */
+  background-color: transparent;
+}
+
+.dark header {
+  /* Przezroczysty w trybie ciemnym, zachowuje blur */
+  background-color: transparent;
+  
+}
+
+/* Footer pozostaje taki jak wcześniej */
+footer {
+  @apply bg-white;
+}
+
+.dark footer {
+  @apply bg-black text-white;
+}
+
+/* Nagłówki h2 */
+h2 {
+  @apply text-tm-gray;
+}
+
+.dark h2 {
+  @apply text-white;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.gradient-text {
+  background: linear-gradient(90deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+/* Dark mode */
+.dark .gradient-text {
+  background: linear-gradient(90deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.6) 100%);
+   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
