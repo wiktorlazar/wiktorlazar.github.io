@@ -5,17 +5,11 @@ import react from '@astrojs/react';
 
 export default defineConfig({
   outDir: 'docs',
-  publicDir: 'public',
-
-  // USER PAGE -> base MUSI BYĆ '/'
-  base: '/',
-
+  base: '/', // User Page – zostaw '/'
   integrations: [tailwind(), react()],
-
   vite: {
-    base: '/',
     build: {
-      assetsDir: '',
+      assetsDir: '', // aby nie dodawało folderu _astro w ścieżkach
     },
   },
 });
